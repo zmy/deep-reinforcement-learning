@@ -13382,7 +13382,7 @@ States have length: 37
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>In the following we use double DQN and experience replay to train an agent that can archieve average score of +15 over 100 consecutive episodes. You can find the detailed hyperparameters for espisode running and for $\epsilon$-greedy exploration.</p>
+<p>In the following we use double DQN and experience replay to train an agent that can archieve average score of +15 over 100 consecutive episodes. You can find the detailed hyperparameters for espisode running ($\leq 2000$ espisodes and $\leq 1000$ steps for each episode) and for $\epsilon$-greedy exploration (starting with $1.0$ and ending at $0.01$ with decay rate of $0.995$). The DQN architecture is simply multiple feed-forward layers. The agent and DQN details are in <code>dqn_agent.py</code> and <code>model.py</code>.</p>
 
 </div>
 </div>
@@ -13576,6 +13576,19 @@ Score: 17.0
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="5.-Future-Work">5. Future Work<a class="anchor-link" href="#5.-Future-Work">&#182;</a></h3><p>A lot of things could be done to make the agent better and fancier:</p>
+<ul>
+<li>Better neural net architecture: Current neural net is still too simple.</li>
+<li>Apply other reinforcement learning techniques (like those applied in Rainbow) to better train the agent.</li>
+<li>Learn from the pixels rather than learning from simplified 37d vectors.</li>
+</ul>
+
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
