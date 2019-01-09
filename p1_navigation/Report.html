@@ -13382,7 +13382,7 @@ States have length: 37
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>In the following we use double DQN and experience replay to train an agent that can archieve average score of +15 over 100 consecutive episodes. You can find the detailed hyperparameters for espisode running ($\leq 2000$ espisodes and $\leq 1000$ steps for each episode) and for $\epsilon$-greedy exploration (starting with $1.0$ and ending at $0.01$ with decay rate of $0.995$). The DQN architecture is simply multiple feed-forward layers. The agent and DQN details are in <code>dqn_agent.py</code> and <code>model.py</code>.</p>
+<p>In the following we use double DQN and experience replay to train an agent that can archieve average score of +15 over 100 consecutive episodes. You can find the detailed hyperparameters for espisode running ($\leq 2000$ espisodes and $\leq 1000$ steps for each episode) and for $\epsilon$-greedy exploration (starting with $1.0$ and ending at $0.01$ with decay rate of $0.995$). The DQN architecture is simply multiple feed-forward layers with state as the input and q-values for all actions as output. The agent and DQN details are in <code>dqn_agent.py</code> and <code>model.py</code>.</p>
 
 </div>
 </div>
@@ -13509,7 +13509,7 @@ Environment solved in 797 episodes!	Average Score: 15.00
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The above figure shows that our agent is learning the game efficiently. Now it's time for a live show!</p>
+<p>The above figure shows that our agent is learning the game efficiently. It achieves $+13$ reward within $600$ episodes. Now it's time for a live show!</p>
 
 </div>
 </div>

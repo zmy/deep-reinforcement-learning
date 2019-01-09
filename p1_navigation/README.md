@@ -38,6 +38,6 @@ The task is episodic, and in order to solve the environment, my agent is trained
 
 Please find the complete running experiments in `Navigation.ipynb` which imports the following reinforcement learning code:
 * In `dqn_agent.py` you can find the code defining the DQN learning agent `Agent` and its companion memory `ReplayBuffer` code.
-* In `model.py` you can find the neural network architecture to approximating the action-value function.
+* In `model.py` you can find the neural network architecture to approximating the action-value function. The DQN takes state vector as input and outputs estimated Q values for all actions.
 
 You can find the saved model weights of the successful agent in `model.pt`.
