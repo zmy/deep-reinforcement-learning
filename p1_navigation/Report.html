@@ -13382,7 +13382,9 @@ States have length: 37
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>In the following we use double DQN and experience replay to train an agent that can archieve average score of +15 over 100 consecutive episodes. You can find the detailed hyperparameters for espisode running ($\leq 2000$ espisodes and $\leq 1000$ steps for each episode) and for $\epsilon$-greedy exploration (starting with $1.0$ and ending at $0.01$ with decay rate of $0.995$). The DQN architecture is simply multiple feed-forward layers with state as the input and q-values for all actions as output. The agent and DQN details are in <code>dqn_agent.py</code> and <code>model.py</code>.</p>
+<p>In the following we use fixed targets and experience replay to train an DQN agent that can archieve average score of +15 over 100 consecutive episodes.</p>
+<p>In the following you can find the detailed hyperparameters for espisode running ($\leq 2000$ espisodes and $\leq 1000$ steps for each episode to avoid running too long for a DQN parameter setting) and for $\epsilon$-greedy exploration (starting with $1.0$ and ending at $0.01$ with decay rate of $0.995$, this allows more explorations at the beginning).</p>
+<p>The DQN architecture is simply multiple feed-forward layers with state as the input and q-values for all actions as output. The agent and DQN details are in <code>dqn_agent.py</code> and <code>model.py</code>.</p>
 
 </div>
 </div>
