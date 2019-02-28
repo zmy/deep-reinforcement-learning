@@ -11,7 +11,6 @@ from buffer import ReplayBuffer
 
 BUFFER_SIZE = int(1e5)  # replay buffer size
 BATCH_SIZE = 128  # minibatch size
-START_SIZE = 512
 GAMMA = 0.99  # discount factor
 TAU = 1e-3  # for soft update of target parameters
 LR_ACTOR = 1e-4  # learning rate of the actor
@@ -24,7 +23,7 @@ device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 class Agent:
     """Interacts with and learns from the environment."""
 
-    def __init__(self, state_size, action_size, random_seed, agents=2, every=2, updates=2):
+    def __init__(self, state_size, action_size, random_seed, agents=2, every=4, updates=4):
         """Initialize an Agent object.
 
         Params
@@ -57,6 +56,10 @@ class Agent:
         # Replay memory
         self.memory = ReplayBuffer(action_size, BUFFER_SIZE, BATCH_SIZE, device)
 
+    def load_actor(self, model_file: str):
+        self.actor_local.load_state_dict(torch.load(model_file, map_location=device))
+        self.actor_local.to(device)
+
     def step(self, states, actions, rewards, next_states, dones):
         """Save experience in replay memory, and use random sample from buffer to learn."""
         # Save experience / reward
@@ -65,7 +68,7 @@ class Agent:
             self.memory.add(states[i], actions[i], rewards[i], next_states[i], dones[i])
 
         # Learn, if enough samples are available in memory
-        if len(self.memory) > START_SIZE and self.steps % self.every == 0:
+        if len(self.memory) > BATCH_SIZE and self.steps % self.every == 0:
             self.steps = 0
             for _ in range(self.updates):
                 experiences = self.memory.sample()
