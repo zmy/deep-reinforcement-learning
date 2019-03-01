@@ -17,8 +17,8 @@ The DDPG hyperparameters also include:
 * Learning rate of actor = 1e-4 and of critic = 3e-4
 
 In `model.py` the NNs for actor and critic can be found.
-They are both vanilla multi-layer full connected networks (3 linear layers, with hidden sizes around 200 ~ 300, tanh at output if requires [-1, 1] output).
-Two lessons I learnt during training are:
+They are both vanilla multi-layer full connected networks (3 linear layers, with hidden sizes around 300 ~ 400, tanh at output if requires [-1, 1] output).
+Three lessons I learnt during training are:
 * Large network is not always better without proper data and training -- Larger networks are hard and slow to train and converge.
 * Batch normalization is very useful to regularize the input, thus vastly improve the learning of a network.
 * Use leaky ReLU instead of ReLU makes NNs to learn faster in my case.
